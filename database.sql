@@ -8,3 +8,9 @@ CREATE TABLE "user" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
+
+ CREATE TABLE "locations" (
+ "user_id" serial primary key,
+ "activity" varchar(255),
+ "location" varchar(255)
+ );
