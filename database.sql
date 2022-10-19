@@ -14,3 +14,10 @@ CREATE TABLE "user" (
  "activity" varchar(255),
  "location" varchar(255)
  );
+
+-- test data
+
+INSERT INTO "locations" ("user_id", "activity", "location") VALUES (
+	1, 'fishing at vino in the valley', '44.69642787608416, -92.32431865781662'
+);
+
