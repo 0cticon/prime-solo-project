@@ -17,11 +17,7 @@ function UserPage() {
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
       <div>
-        {locationList.map(location => {
-          return (
-            <LocationItem key={location.id} location={location} />
-          );
-        })}
+        locations go here
       </div>
       {/* use effect / axios get for info in datadase */}
       {/* button to add new location  / POST */}
