@@ -1,15 +1,15 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { useHistory } from 'react-router-dom';
 
-function LocationItem({
-    location
-}) {
-    const history = useHistory();
-    const dispatch = useDispatch();
+// function LocationItem({
+//     location
+// }) {
+//     const history = useHistory();
+//     const dispatch = useDispatch();
 
-    const displayLocation = (locationToDisplay) => {
-        console.log(locationToDisplay);
-    }
-}
+//     const displayLocation = (locationToDisplay) => {
+//         console.log(locationToDisplay);
+//     }
+// }
 
-export default LocationItem;
+// export default LocationItem;
