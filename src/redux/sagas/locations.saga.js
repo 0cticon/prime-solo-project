@@ -5,14 +5,14 @@ function* fetchAllLocations() {
     try {
         const locations = yield axios.get('/api/locations');
         console.log('get all:', locations.data);
-        yield put({ type: 'SET_LOCATIONS', payload: locations.data});
+        yield put({ type: 'FETCH_LOCATIONS', payload: locations.data});
     } catch {
         console.log('get locations error');
     }
 }
 
 function* locationsSaga() {
-    yield takeLatest('GET_LOCATIONS', fetchAllLocations);
+    yield takeLatest('FETCH_LOCATIONS', fetchAllLocations);
   }
 
 export default locationsSaga;

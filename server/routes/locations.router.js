@@ -1,5 +1,5 @@
 const express = require('express');
-const Pool = require('pg-pool');
+// const Pool = require('pg-pool');
 const pool = require('../modules/pool');
 const router = express.Router();
 

@@ -1,6 +1,6 @@
 const locationsReducer = (state = {}, action) => {
     switch (action.type) {
-      case 'SET_LOCATION':
+      case 'FETCH_LOCATION':
         return action.payload;
       case 'UNSET_LOCATION':
         return {};
