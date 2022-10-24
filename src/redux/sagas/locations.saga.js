@@ -3,9 +3,9 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchAllLocations() {
     try {
-        const locations = yield axios.get('/api/locations');
+        const locations = yield axios.get('/api/locations/  ');
         console.log('get all:', locations.data);
-        yield put({ type: 'FETCH_LOCATIONS', payload: locations.data});
+        yield put({ type: 'SET_LOCATIONS', payload: locations.data});
     } catch {
         console.log('get locations error');
     }

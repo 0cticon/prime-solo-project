@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -11,7 +10,10 @@ function LocationItem({
     const displayLocation = (locationToDisplay) => {
         console.log(locationToDisplay);
     }
-    return
+    return (
+        <div>{location.activity} {location.id}</div>
+    )
+
 
 }
 

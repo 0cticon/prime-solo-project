@@ -7,7 +7,7 @@ function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
-  const locationList = useSelector(store => store.location);
+  const locationList = useSelector(store => store.locations);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_LOCATIONS' });
@@ -16,18 +16,14 @@ function UserPage() {
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
-      <div>
-
+      {/* <h3>locations go here</h3> */}
+      <section className="locations">
         {locationList.map(location => {
           return (
-            <div>
-              <LocationItem key={location.data} location={location} />
-            </div>
+            <LocationItem key={location.id} location={location} />
           )
         })}
-
-
-      </div>
+      </section>
       {/* use effect / axios get for info in datadase */}
       {/* button to add new location  / POST */}
 
