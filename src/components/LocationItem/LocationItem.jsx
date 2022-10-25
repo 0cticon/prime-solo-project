@@ -11,7 +11,7 @@ function LocationItem({
         console.log(locationToDisplay);
     }
     return (
-        <div>{location.activity} {location.id}</div>
+        <div>{location.activity}</div>
     )
 
 
