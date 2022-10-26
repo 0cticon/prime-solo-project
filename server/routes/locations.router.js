@@ -24,6 +24,24 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
   // POST route code here
+  console.log('/locations POST route');
+  console.log(req.body);
+  console.log('is authenticated?', req.isAuthenticated());
+  console.log('user', req.user);
+  if(req.isAuthenticated()) {
+      // all lowercase with singular names 
+      const queryText = `INSERT INTO "locations" ("activity", "location")
+                         VALUES ($1, $2) RETURNING "id";`;
+      pool.query(queryText, [req.body.name, req.user.id]).then((result) => {
+          res.sendStatus(201);
+      }).catch((e) => {
+          console.log(e);
+          res.sendStatus(500);
+      });
+  } else {
+      res.sendStatus(403); // Forbidden
+  }
+  
 });
 
 module.exports = router;

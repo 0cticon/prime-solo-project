@@ -7,7 +7,9 @@ function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
-  const locationList = useSelector(store => store.locations);
+  const activityList = useSelector((store) => store.locations);
+  const locationList = useSelector((store) => store.locations);
+  const [newActivity, setNewActivity] = useState('');
   const [newLocation, setNewLocation] = useState('');
 
   useEffect(() => {
@@ -15,7 +17,8 @@ function UserPage() {
   }, []);
 
   const addNewLocation = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    dispatch({ type: 'ADD_ACTIVITY', payload: newActivity });
     dispatch({ type: 'ADD_LOCATION', payload: newLocation });
   }
 
@@ -32,8 +35,8 @@ function UserPage() {
       </section>
       <div>
         <form onSubmit={addNewLocation}>
-          <input value={''} placeholder={`New Activity / Location`} onChange={(e) => addNewLocation(e.target.value)} type="text" />
-          <input value={''} placeholder={`Address / GPS`} onChange={(e) => addNewLocation(e.target.value)} type="text" />
+          <input value={newActivity} placeholder={`New Activity / Location`} onChange={(e) => setNewActivity(e.target.value)} type="text" />
+          <input value={newLocation} placeholder={`Address / GPS`} onChange={(e) => setNewLocation(e.target.value)} type="text" />
           <input type="submit" />
         </form>
       </div>
