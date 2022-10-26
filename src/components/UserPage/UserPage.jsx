@@ -33,7 +33,7 @@ function UserPage() {
       <div>
         <form onSubmit={addNewLocation}>
           <input value={''} placeholder={`New Activity / Location`} onChange={(e) => addNewLocation(e.target.value)} type="text" />
-          {/* <input value={''} placeholder={`Address / GPS`} onChange={(e) => } */}
+          <input value={''} placeholder={`Address / GPS`} onChange={(e) => addNewLocation(e.target.value)} type="text" />
           <input type="submit" />
         </form>
       </div>
