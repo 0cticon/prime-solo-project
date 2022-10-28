@@ -10,9 +10,10 @@ CREATE TABLE "user" (
 );
 
  CREATE TABLE "locations" (
- "user_id" serial primary key,
+ "id" serial primary key,
  "activity" varchar(255),
- "location" varchar(255)
+ "location" varchar(255),
+ "user_id" serial foreign key
  );
 
 -- test data
