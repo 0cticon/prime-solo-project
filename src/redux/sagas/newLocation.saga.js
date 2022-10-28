@@ -7,7 +7,7 @@ import { put, takeLatest } from "redux-saga/effects";
 function* addActivity(action) {
     try {
         yield axios.post('/api/locations', action.payload);
-        yield put({ type: 'FETCH_LOCATION_LIST' });
+        yield put({ type: 'FETCH_LOCATIONS' });
     }catch (error) {
         console.log('add location saga failed', error);
         alert('something went wrong.');
@@ -17,7 +17,7 @@ function* addActivity(action) {
 // function* addLocation(action) {
 //     try {
 //         yield axios.post('/api/locations', { name: action.payload });
-//         yield put({ type: 'FETCH_LOCATION_LIST' });
+//         yield put({ type:    'FETCH_LOCATION_LIST' });
 //     }catch (error) {
 //         console.log('add location saga failed', error);
 //         alert('something went wrong.');

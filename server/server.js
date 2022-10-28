@@ -24,9 +24,11 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 
-const locationRouter = require('./routes/locations.router')
+const locationsRouter = require('./routes/locations.router')
 
-app.use('/api/locations', locationRouter);
+
+app.use('/api/locations', locationsRouter);
+
 
 // Serve static files
 app.use(express.static('build'));

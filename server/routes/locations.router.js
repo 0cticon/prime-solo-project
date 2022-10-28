@@ -6,6 +6,7 @@ const router = express.Router();
 /**
  * GET route template
  */
+// GET route code here
 router.get('/', (req, res) => {
   const query = `SELECT * FROM locations ORDER BY "user_id" ASC`;
   pool.query(query)
@@ -16,8 +17,20 @@ router.get('/', (req, res) => {
     console.log('ERROR: get all locations router', err);
     res.sendStatus(500)
   })
-  // GET route code here
 });
+
+router.get('/:id', (req, res) => {
+  const query = `SELECT * FROM locations WHERE "id"=$1`;
+  pool.query(query, [req.params.id])
+    .then(result => {
+      res.send(result.rows[0]);
+    })
+    .catch(err => {
+      console.log('error in get details', err);
+      res.sendStatus(500)
+    })
+});
+
 
 /**
  * POST route template

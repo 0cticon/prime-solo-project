@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Header from '../Header/Header';
+import LocationDetails from '../LocationDetails/LocationDetails';
 
 import './App.css';
 
@@ -69,6 +70,12 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute>
+
+          <ProtectedRoute
+            exact path="/detail/:locationId">
+            <LocationDetails />
+          </ProtectedRoute>
+
 
           <Route
             exact
