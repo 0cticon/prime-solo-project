@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 function LocationItem({
     location
@@ -9,9 +9,10 @@ function LocationItem({
 
     const displayLocation = (locationToDisplay) => {
         console.log(locationToDisplay);
+        history.push(`/detail/${locationToDisplay.id}`);
     }
     return (
-        <div>{location.activity}</div>
+        <div onClick={(event) => displayLocation(location)}>{location.activity}</div>
     )
 
 
