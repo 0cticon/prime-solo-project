@@ -18,8 +18,8 @@ function UserPage() {
 
   const addNewLocation = (e) => {
     // e.preventDefault();
-    dispatch({ type: 'ADD_ACTIVITY', payload: newActivity });
-    dispatch({ type: 'ADD_LOCATION', payload: newLocation });
+    dispatch({ type: 'ADD_ACTIVITY', payload: { activity: newActivity, location: newLocation } });
+    // dispatch({ type: 'ADD_LOCATION', payload: newLocation });
   }
 
   return (
