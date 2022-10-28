@@ -11,10 +11,10 @@ function* fetchLocationDetails(action) {
     }
 }
 
-function* locationDetailSaga() {
+function* locationDetailsSaga() {
     yield takeLatest('FETCH_LOCATION_DETAILS', fetchLocationDetails);
 }
 
 
 
-export default locationDetailSaga;
+export default locationDetailsSaga;
