@@ -14,8 +14,8 @@ function LocationDetails() {
 
     return (
         <div className="location">
-            <h2>{location.activity}</h2> <h4>located at</h4> <h3>{location.location}</h3>
-            <a href={`https://www.google.com/maps/dir/?api=1&destination=${location.location}`}>Open Map</a>
+            <h1>{location.activity}</h1> <h4>located at</h4> <h3>{location.location}</h3>
+            <a href={`https://www.google.com/maps/dir/?api=1&destination=${location.location}`}>Navigate to Location</a>
         </div>
     )
 }

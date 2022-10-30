@@ -8,15 +8,17 @@ const router = express.Router();
  */
 // GET route code here
 router.get('/', (req, res) => {
-  const query = `SELECT * FROM locations ORDER BY "id" ASC`;
-  pool.query(query)
-  .then( result => {
-    res.send(result.rows);
-  })
-  .catch(err => {
-    console.log('ERROR: get all locations router', err);
-    res.sendStatus(500)
-  })
+  if (req.isAuthenticated()) {
+    const query = `SELECT * FROM "locations" WHERE "user_id" = $1 ORDER BY "id" ASC`;
+    pool.query(query, [req.user.id]).then((result) => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: get all locations router', err);
+      res.sendStatus(500)
+    })
+  }
+
 });
 
 router.get('/:id', (req, res) => {
