@@ -45,9 +45,9 @@ router.post('/', (req, res) => {
   console.log('user', req.user);
   if(req.isAuthenticated()) {
       // all lowercase with singular names 
-      const queryText = `INSERT INTO "locations" ("activity", "location", "user_id")
-                         VALUES ($1, $2, $3) RETURNING "id";`;
-      pool.query(queryText, [req.body.activity, req.body.location, req.user.id]).then((result) => {
+      const queryText = `INSERT INTO "locations" ("activity", "location", "user_id", "picture")
+                         VALUES ($1, $2, $3, $4) RETURNING "id";`;
+      pool.query(queryText, [req.body.activity, req.body.location, req.user.id, req.body.picture]).then((result) => {
           res.sendStatus(201);
       }).catch((e) => {
           console.log(e);

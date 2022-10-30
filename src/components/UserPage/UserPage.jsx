@@ -9,8 +9,10 @@ function UserPage() {
   const dispatch = useDispatch();
   const activityList = useSelector((store) => store.locations);
   const locationList = useSelector((store) => store.locations);
+  const pictureList = useSelector((store) => store.locations);
   const [newActivity, setNewActivity] = useState('');
   const [newLocation, setNewLocation] = useState('');
+  const [newImage, setNewImage] = useState('');
 
   useEffect(() => {
     dispatch({ type: 'FETCH_LOCATIONS' });
@@ -18,8 +20,8 @@ function UserPage() {
 
   const addNewLocation = (e) => {
     e.preventDefault();
-    dispatch({ type: 'ADD_ACTIVITY', payload: { activity: newActivity, location: newLocation } });
-    // dispatch({ type: 'ADD_LOCATION', payload: newLocation });
+    dispatch({ type: 'ADD_ACTIVITY', payload: { activity: newActivity, location: newLocation, image: newImage } });
+
   }
 
   return (
@@ -37,6 +39,7 @@ function UserPage() {
         <form onSubmit={addNewLocation}>
           <input value={newActivity} placeholder={`New Activity / Location`} onChange={(e) => setNewActivity(e.target.value)} type="text" />
           <input value={newLocation} placeholder={`Address / GPS`} onChange={(e) => setNewLocation(e.target.value)} type="text" />
+          <input value={newImage} placeholder={`Image`} onChange={(e) => setNewImage(e.target.value)} type="text" />
           <input type="submit" />
         </form>
       </div>

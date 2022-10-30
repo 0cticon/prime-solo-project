@@ -11,13 +11,14 @@ CREATE TABLE "user" (
 
  CREATE TABLE "locations" (
  "id" serial primary key,
- "activity" varchar(255),
- "location" varchar(255),
- "user_id" serial foreign key
+ "activity" varchar(255) NOT NULL,
+ "location" varchar(255) NOT NULL,
+ "picture" varchar(500),
+ "user_id" INT REFERENCES "user"
  );
 
 -- test data
-INSERT INTO "locations" ("user_id", "activity", "location") VALUES (
-	1, 'fishing at vino in the valley', '44.69642787608416, -92.32431865781662'
+INSERT INTO "locations" ("user_id", "activity", "location, "picture") VALUES (
+	1, 'fishing at vino in the valley', '44.69642787608416, -92.32431865781662', 'images/pexels-ian-turnell-709552.jpg
 );
 
